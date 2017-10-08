@@ -9,13 +9,17 @@
   margin-top: 10px;
 }
 
+.button-assertive {
+  opacity: 0.9;
+}
+
 .button-assertive:disabled {
   opacity: 0.5;
 }
 
 #edit-button {
-	width: 290px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  width: 290px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
