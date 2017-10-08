@@ -1,5 +1,15 @@
 {
   "name": "PXEstudos_Aluno",
-  "app_id": "",
-  "type": "ionic1"
+  "app_id": "9fca9ee6",
+  "type": "ionic1",
+  "integrations": {
+    "gulp": {},
+    "cordova": {}
+  },
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }
