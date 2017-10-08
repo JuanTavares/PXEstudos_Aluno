@@ -3,7 +3,7 @@ angular.module('app')
     .controller('meuPerfilCtrl', function($scope, $stateParams, firebase, MeuStorage, $timeout, $ionicLoading) {
 
         var usuarioLogado = firebase.auth().currentUser;
-        var db = firebase.database().ref('Professor/' + usuarioLogado.uid);
+        var db = firebase.database().ref('Aluno/' + usuarioLogado.uid);
 
         $ionicLoading.show({
             template: 'Carregando ...'
@@ -38,7 +38,7 @@ angular.module('app')
         $ionicLoading.show({
             template: 'Carregando ...'
         });
-
+        //TODO: MUDAR DE ('Turma') PARA ('Materia')
         var db = firebase.database().ref('Turma/');
         var obj = $firebaseObject(db);
         $scope.listaDeTurmas = obj;
@@ -55,7 +55,7 @@ angular.module('app')
     .controller('menuCtrl', function($scope, $stateParams, firebase, $state, $timeout) {
 
         var usuarioLogado = firebase.auth().currentUser;
-        var db = firebase.database().ref('Professor/' + usuarioLogado.uid);
+        var db = firebase.database().ref('Aluno/' + usuarioLogado.uid);
 
         $scope.deslogar = function() {
             firebase.auth().signOut();
@@ -125,7 +125,7 @@ angular.module('app')
     .controller('editarPerfilCtrl', function($scope, firebase, $state, $cordovaCamera, $firebaseObject, $filter, $ionicPopup) {
 
         var usuarioLogado = firebase.auth().currentUser;
-        var db = firebase.database().ref('Professor/' + usuarioLogado.uid);
+        var db = firebase.database().ref('Aluno/' + usuarioLogado.uid);
         var obj = $firebaseObject(db);
 
         $scope.editar = {};
@@ -137,7 +137,7 @@ angular.module('app')
                 if (usuarioLogado.displayName) {
                     $scope.usuarioNome = usuarioLogado.displayName;
                 } else {
-                    $scope.usuarioNome = "Nome do Professor";
+                    $scope.usuarioNome = "Nome do Aluno";
                 }
                 if (obj.DataNascimento) {
                     $scope.usuarioNascimento = obj.DataNascimento;
