@@ -6,6 +6,7 @@
     "gulp": {},
     "cordova": {}
   },
+  "gulpStartupTasks": ["sass", "watch"],
   "watchPatterns": [
     "scss/**/*",
     "www/**/*",
