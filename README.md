@@ -1,4 +1,4 @@
-PXEstudos_Professor - Ionic 1/AngularJs & Firebase
+PXEstudos_Aluno - Ionic 1/AngularJs & Firebase
 ==============
 
 Projeto inicialmente desenvolvido para meu TCC porém descontinuado após a conclusão devido ao descontinuamento pela própria Drift co. de ferramentas da versão 1.
