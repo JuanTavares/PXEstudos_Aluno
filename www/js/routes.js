@@ -24,6 +24,26 @@ angular.module('app')
                 }
             })
 
+            .state('menu.materiaEscolhida', {
+                url: '/materiaEscolhida',
+                views: {
+                    'side-menu21': {
+                        templateUrl: 'templates/materiaEscolhida.html',
+                        controller: 'materiaEscolhidaCtrl'
+                    }
+                }
+            })
+
+            .state('menu.aulaEscolhida', {
+                url: '/aulaEscolhida',
+                views: {
+                    'side-menu21': {
+                        templateUrl: 'templates/aulaEscolhida.html',
+                        controller: 'aulaEscolhidaCtrl'
+                    }
+                }
+            })
+
             .state('menu.minhaAgenda', {
                 url: '/minhaAgenda',
                 views: {

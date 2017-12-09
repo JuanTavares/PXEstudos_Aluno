@@ -1,0 +1,13 @@
+<ion-view id="pageMateriaEscolhida">
+    <ion-nav-title>{{minhaTurma.$id}}</ion-nav-title>
+    <ion-content padding="true" class="has-header" overflow-scroll="false">
+        <ion-list>
+            <ion-item ng-repeat="atv in listaDeAtvs" class="item item-thumbnail-left" ui-sref="menu.aulaEscolhida()" ng-click="salvarAula({{atv}})" ng-if="atv.source">
+                <img ng-src="{{atv.source}}">
+                <h2>{{atv.titulo}}</h2>
+                <p rows="3"></p>
+                <textarea rows="4" cols="50" style="resize: none; width:100%; background-color: white; overflow: hidden;" disabled>{{atv.descricao}}</textarea>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

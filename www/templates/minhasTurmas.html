@@ -1,8 +1,9 @@
-<ion-view title="Minhas Turmas" id="page2">
-    <ion-content padding="true" class="has-header">
+<ion-view id="page2">
+    <ion-nav-title>{{minhaTurma.Curso}}</ion-nav-title>
+    <ion-content padding="true" class="has-header" overflow-scroll="false">
         <ion-list>
-            <ion-item ng-repeat="turma in listaDeTurmas" href="#">
-                {{turma.Curso}} - {{turma.Semestre}}
+            <ion-item ng-repeat="materia in listaDeMaterias" ui-sref="menu.materiaEscolhida()" ng-click="salvarMateria({{materia}})">
+                {{materia.$id}}
             </ion-item>
         </ion-list>
     </ion-content>

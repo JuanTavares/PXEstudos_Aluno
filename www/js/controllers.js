@@ -33,22 +33,87 @@ angular.module('app')
         })
     })
 
-    .controller('minhasTurmasCtrl', function($scope, $stateParams, firebase, MeuStorage, $ionicLoading, $firebaseObject) {
+    .controller('minhasTurmasCtrl', function($scope, $stateParams, firebase, MeuStorage, $ionicLoading, $firebaseObject, $firebaseArray, $rootScope) {
 
         $ionicLoading.show({
             template: 'Carregando ...'
         });
-        //TODO: MUDAR DE ('Turma') PARA ('Materia')
-        var db = firebase.database().ref('Turma/');
+
+        var db = firebase.database().ref('Turma/3/');
         var obj = $firebaseObject(db);
-        $scope.listaDeTurmas = obj;
+        $scope.minhaTurma = obj;
+
+        var materiasRef = db.child('Materias');
+        var array = $firebaseArray(materiasRef);
+        $scope.listaDeMaterias = array;
 
         $ionicLoading.hide();
+
+        $scope.salvarMateria = function(dados){
+            $rootScope.materiaId = dados.$id;
+            console.log(dados.$id);
+        }
+
     })
 
-    .controller('minhaAgendaCtrl', function($scope, $stateParams, firebase) {
+    .controller('materiaEscolhidaCtrl', function($scope, $stateParams, firebase, MeuStorage, $ionicLoading, $firebaseObject, $firebaseArray, $rootScope) {
+
+        $ionicLoading.show({
+            template: 'Carregando ...'
+        });
+
+        var db = firebase.database().ref('Turma/3/Materias/' + $rootScope.materiaId);
+        var obj = $firebaseObject(db);
+        $scope.minhaTurma = obj;
+
+        $scope.listaDeAtvs = $firebaseArray(db);
+
+        $ionicLoading.hide();
+
+        $scope.salvarAula = function(dados){
+            $rootScope.aulaId = dados.$id;
+        }
+    })
+
+    .controller('aulaEscolhidaCtrl', function($scope, $stateParams, firebase, MeuStorage, $ionicLoading, $firebaseObject, $firebaseArray, $rootScope, $timeout) {
+        
+                var db = firebase.database().ref('Turma/3/Materias/' + $rootScope.materiaId + "/" + $rootScope.aulaId);
+                var obj = $firebaseObject(db);
+        
+                $ionicLoading.show({
+                    template: 'Carregando ...'
+                });
+                console.log(obj);
+                $ionicLoading.hide();
+        
+                $scope.obj = obj;
+        
+            })
+
+    .controller('minhaAgendaCtrl', function($scope, $stateParams, firebase, MeuStorage, $ionicLoading, $firebaseObject, $firebaseArray, $rootScope) {
 
         var usuarioLogado = firebase.auth().currentUser;
+
+        var dbEcom = firebase.database().ref('Turma/3/Materias/Economia');
+        var dbSe = firebase.database().ref('Turma/3/Materias/Sistemas Embarcados');
+        var dbSiscom = firebase.database().ref('Turma/3/Materias/Sistemas de Comunicação');
+        var dbJogos = firebase.database().ref('Turma/3/Materias/Jogos Digitais');
+
+        var objEcom = $firebaseObject(dbEcom);
+        var objSe = $firebaseObject(dbSe);
+        var objSiscom = $firebaseObject(dbSiscom);
+        var objJogos = $firebaseObject(dbJogos);
+/*
+        $scope.numEcom;
+        $scope.numSe;
+        $scope.numSiscom;
+        $scope.numJogos;
+*/
+        $scope.materiaEcom = objEcom;
+        $scope.materiaSe = objSe;
+        $scope.materiaSiscom = objSiscom;
+        $scope.materiaJogos = objJogos;
+
 
     })
 

@@ -1,3 +1,22 @@
-<ion-view title="Minha Agenda" id="page3">
-  <ion-content padding="true" class="has-header"></ion-content>
+<ion-view title="Minha Presença" id="page3">
+    <ion-content padding="true" scroll="true" class="has-header" overflow-scroll="false">
+        <ion-list>
+            <ion-item>
+                {{materiaEcom.$id}}
+                <span class="item-note">10</span>
+            </ion-item>
+            <ion-item>
+                {{materiaSe.$id}}
+                <span class="item-note">9</span>
+            </ion-item>
+            <ion-item>
+                {{materiaSiscom.$id}}
+                <span class="item-note">7</span>
+            </ion-item>
+            <ion-item>
+                {{materiaJogos.$id}}
+                <span class="item-note">12</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>
